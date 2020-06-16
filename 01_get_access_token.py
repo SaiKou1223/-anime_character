@@ -4,8 +4,8 @@ def get_access():
     url = 'https://aip.baidubce.com/oauth/2.0/token'
     params = {
         'grant_type':'client_credentials',
-        'client_id':'5cG3zEUTP7m15QCqvwrAFFj9',
-        'client_secret':'cQ9iuWlPgCvQkXfOjMdlARYsPTSvCUs0'
+        'client_id':'<此处变量涉及个人数据使用次数，看 readme>',
+        'client_secret':'<此处变量涉及个人数据使用次数，看 readme>'
     }
     response = requests.get(url,params)
     data = response.json()
@@ -25,9 +25,9 @@ def get_image(access_token,image_name):
     request_url = request_url + "?access_token=" + access_token
     response = requests.post(request_url, data=params, headers=headers)
     content = response.json()
-    with open('a22.jpg','wb') as r:
+    with open('a11.jpg','wb') as r:
         data = base64.b64decode(content['image'])
         r.write(data)
 if __name__ == '__main__':
     access_token = get_access()
-    get_image(access_token,'22.jpg')
+    get_image(access_token,'11.jpg')
